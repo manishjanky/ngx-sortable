@@ -1,7 +1,7 @@
 # ngx-sortable
 
 [![GitHub license](https://img.shields.io/github/license/manishjanky/ngx-sortable.svg)](https://github.com/me-and/mdf/blob/master/LICENSE)
-[![npm](https://img.shields.io/npm/v/ngx-select-dropdown.svg)]()
+[![npm](https://img.shields.io/npm/v/ngx-sortable.svg)]()
 [![Build Status](https://travis-ci.org/manishjanky/ngx-sortable.svg?branch=master)](https://travis-ci.org/manishjanky/ngx-sortable)
 [![Codecov branch](https://codecov.io/gh/manishjanky/ngx-sortable/branch/master/graphs/badge.svg)]()
 [![npm](https://img.shields.io/npm/dt/ngx-sortable.svg)]()
@@ -30,7 +30,7 @@
 
 * import `NgxSortableModule` into your app.module;
 ````
-import { NgxSortableModule } from 'ngx-select-dropdown'
+import { NgxSortableModule } from 'ngx-sortable'
 ````
 * add `NgxSortableModule` to the imports of your NgModule:
 `````
