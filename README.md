@@ -56,7 +56,7 @@ class YourModule { ... }
     </ngx-sortable>
 ````
 
->>Where <ng-template></ng-template> is the template that will be used for displaying list items. Also the class can be named accordingly this is just an example. Create a class and add it to your root style.css
+> Where <ng-template></ng-template> is the template that will be used for displaying list items. Also the class can be named accordingly this is just an example. Create a class and add it to your root style.css
 
 
 
