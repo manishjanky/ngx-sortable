@@ -44,31 +44,39 @@ import { NgxSortableModule } from 'ngx-sortable'
 class YourModule { ... }
 `````
 
-* use `<ngx-sortable></ngx-sortable>` in your templates to add pagination in your view like below
+* use `<ngx-sortable></ngx-sortable>` in your templates to add sortable list in your view
 
 ````
-<ngx-sortable (change)="selectionChanged($event)" [multiple]="true" [(value)]="dataModel" [config]="config" [options]="dropdownOptions"></ngx-sortable>
+    <ngx-sortable [items]="items" [name]="'List'">
+        <ng-template let-item>
+            <li class="sortable-list-item">
+                {{item}}
+            </li>
+        </ng-template>
+    </ngx-sortable>
 ````
+
+>>Where <ng-template></ng-template> is the template that will be used for displaying list items. Also the class can be named accordingly this is just an example. Create a class and add it to your root style.css
+
+
 
 ## Config
 
 ### Input
 
-* `multiple: boolean` - `true/false` beased if multiple selection required or not `Defaults to false`.
-* `options: Array` - Array of string/objects that are to be the dropdown options.
-* `value: any` - the model variable in which you want to save the selected options.
-* `config: Object` - configuration object.
+* `items: any[]` - array of list items.
+* `name: string` - List name that will be shown in the header.
+* `listStyle: any` - list styles such as `height, width`.
 ````
-config = {
-        displayKey:"description", //if objects array passed which key to be displayed defaults to description
-        search:true //true/false for the search functionlity
+listStyle = {
+        width:'300px', //width of the list defaults to 300
+        height: '250px', //height of the list defaults to 250
       }
 ````
 
 ### Output
 
-* `value: any` - array of selected options
-* `change: Event` - change event when user changes the selected options
+* `listSorted: Event` - when list is sorted emits listSorted event with updated order
 
 ## Help Improve
 
