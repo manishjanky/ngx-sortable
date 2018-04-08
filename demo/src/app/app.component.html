@@ -1,0 +1,168 @@
+<div class="container pt-1">
+  <div class="row white mb-0">
+    <div class="col s12 l6">
+      <h5>ngx-sortable demo</h5>
+    </div>
+    <div class="col s12 l6">
+      <a href="https://manishjanky.github.io/#/" class="blue-text right credits" target="_blank">Developed By:Manish</a>
+    </div>
+  </div>
+  <div class="center row">
+    <h1 class="blue-text">ngx-sortable</h1>
+
+    <h5 class="blue-text">An angular 4 and above component for sorting list supporting drag and drop sort.</h5>
+    <div>
+      <a href="https://github.com/manishjanky/ngx-sortable" class="btn blue" style="margin:10px;">
+        <span class="fa fa-github"> Github</span>
+      </a>
+      <a href="https://github.com/manishjanky/ngx-sortable/issues" class="btn blue" style="margin:10px;">
+        <span class="fa fa-bug"> Report a bug</span>
+      </a>
+    </div>
+  </div>
+  <div class="row nav-tabs white">
+      <div class="col s12">
+        <ul class="tabs">
+            <li class="tab col s2">
+                <a class="nav-link" [ngClass]="{'active':tab==1}" (click)="tab=1">Documentation</a>
+              </li>
+              <li class="tab col s2">
+                <a class="nav-link" [ngClass]="{'active':tab==2}" (click)="tab=2">Demo</a>
+              </li>
+        </ul>
+      </div>
+    </div>
+  <div class="row white content" *ngIf="tab==1">
+    <div class="col s12 pt-1">
+      <h4>1.Installation</h4>
+      <pre class="codeBlock">
+        //using npm
+        <strong> npm install ngx-sortable</strong>
+
+        //using yarn
+        <strong> yarn add ngx-sortable</strong>
+        <strong> yarn install</strong></pre>
+
+    </div>
+    <div class="col s12 pt-1">
+      <h4>2.Using with webpack and tsc builds/ angular-cli builds</h4>
+      <ul>
+        <li>import NgxSortableModule from ngx-sortable</li>
+        <li>add NgxSortableModule to the imports of your NgModule</li>
+      </ul>
+      <pre class="codeBlock">
+        <strong>
+          import {{'{'}} NgxSortableModule {{'}'}} from 'ngx-sortable'
+        
+          @NgModule({{'{'}}
+            imports: [
+              ...,
+          
+              NgxSortableModule
+            ],
+            ...
+          })
+          class YourModule {{'{'}} ... {{'}'}}</strong></pre>
+    </div>
+    <div class="col s12 pt-1">
+      <ul>
+        <li>
+          use
+          <strong>&lt;ngx-sortable&gt;&lt;/ngx-sortable&gt;</strong> in your templates to add the sortable list in your view like below
+        </li>
+        <li>a tag in you html will look like below with all the config</li>
+      </ul>
+
+      <pre class="codeBlock">
+          <strong>&lt;ngx-sortable [items]="items" [name]="'List'"&gt;
+              &lt;ng-template let-item&gt;
+                  &lt;div class="sortable-list-item"&gt;
+                  {{'{'}}{{'{'}}item{{'}'}}{{'}'}}
+                  &lt;/div&gt;
+              &lt;/ng-template&gt;
+          &lt;/ngx-sortable&gt;
+        </strong></pre>
+        <div class="row">
+          <blockquote>
+              Where content inside <strong>&lt;ng-template&gt;&lt;/ng-template&gt;</strong> is the template that will be used for displaying list items i.e the template of the list item. 
+              Also the class can be named accordingly this is just an example. Create a class and add it to your root style.css
+          </blockquote>
+        </div>
+    </div>
+    <div class="col s12 pt-1">
+      <h4>3.Config</h4>
+      <h6>Input</h6>
+      <ul>
+        <li>
+          <strong>items: any[]</strong> - array of items that are part of the list.
+        </li>
+        <li>
+          <strong>name: string</strong> - name of the list.
+        </li>
+        <li>
+          <strong>listStyle: any</strong> -  list styles such as height, width.
+        </li>
+      </ul>
+      <pre class="codeBlock">
+          listStyle = {{'{'}}
+            width:'300px', //width of the list defaults to 300,
+            height: '250px', //height of the list defaults to 250
+            {{'}'}}</pre>
+      <h6>Output</h6>
+      <ul>
+        <li>
+          <strong>listSorted: Event</strong> - when list is sorted emits listSorted event with updated order
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="row white content" *ngIf="tab==2">
+    <div class="col s12">
+      <h3>Demos</h3>
+      <h5>Single Select Dropdown</h5>
+      <div class="row">
+        <div class="col s12 l6">
+            <!-- <ngx-sortable [multiple]="false" [(value)]="singleSelect" [config]="config" [options]="options"></ngx-sortable> -->
+        </div>
+        <div class="col s12 l6 flow-text" >
+          <!-- <p style="margin: 0;">Balance of selected user: {{singleSelect[0]?.balance}}</p> -->
+        </div>
+      </div>
+
+      <h5>Multi Select Dropdown</h5>
+      <div class="row">
+        <div class="col s12 l6">
+            <!-- <ngx-sortable (change)="changeValue($event)" [multiple]="true" [(value)]="multiSelect" [config]="config" [options]="options"></ngx-sortable> -->
+        </div>
+        <div class="col s12 l6 flow-text" >
+          <p style="margin: 0;">Selected Options:-</p>
+          <!-- <p style="margin: 0;" *ngFor="let user of multiSelect"><strong>Name:</strong> {{user.name}} , <strong>Balance:</strong> {{user.balance}}</p> -->
+        </div>
+      </div>
+
+      <h5>Options as array of string</h5>
+      <div class="row">
+        <div class="col s12 l6">
+            <!-- <ngx-sortable [multiple]="true" [(value)]="stringArray" [options]="stringOptions"></ngx-sortable> -->
+        </div>
+        <div class="col s12 l6 flow-text" >
+            <p style="margin: 0;">Selected Options:-</p>
+          <!-- <p style="margin: 0;" *ngFor="let user of stringArray">{{user}}</p> -->
+        </div>
+      </div>
+
+      <h5>Options as array of Objects</h5>
+      <div class="row">
+        <div class="col s12 l6">
+            <!-- <ngx-sortable [multiple]="true" [(value)]="objectsArray" [options]="options" [config]="config"></ngx-sortable> -->
+        </div>
+        <div class="col s12 l6 flow-text" >
+            <p style="margin: 0;">Selected Options:-</p>
+          <!-- <p style="margin: 0;" *ngFor="let user of objectsArray">{{user | json}}</p> -->
+        </div>
+      </div>
+      </div>
+  </div>
+</div>

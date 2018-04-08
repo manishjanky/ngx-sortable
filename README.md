@@ -11,7 +11,7 @@
 [![GitHub closed issues](https://img.shields.io/github/issues-closed/manishjanky/ngx-sortable.svg)]()
 [![GitHub contributors](https://img.shields.io/github/contributors/manishjanky/ngx-sortable.svg)]()
 
-`ngx-sortable` an angular component for sorting list supporting drag and drop sort.
+`ngx-sortable` an angular 4 and above component for sorting list supporting drag and drop sort.
 
 ## Features
 * Custom template
@@ -49,9 +49,9 @@ class YourModule { ... }
 ````
     <ngx-sortable [items]="items" [name]="'List'">
         <ng-template let-item>
-            <li class="sortable-list-item">
+            <div class="sortable-list-item">
                 {{item}}
-            </li>
+            </div>
         </ng-template>
     </ngx-sortable>
 ````

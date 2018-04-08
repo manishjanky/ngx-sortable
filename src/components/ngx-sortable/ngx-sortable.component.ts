@@ -1,5 +1,5 @@
 import {
-  Component, Input, Output, ContentChild,
+  Component, Input, Output, ContentChild, EventEmitter,
   TemplateRef, ElementRef
 } from '@angular/core';
 
@@ -15,6 +15,7 @@ export class NgxSortableComponent {
     height: '250px',
     width: '300px'
   };
+  @Output() listSorted: EventEmitter<any> =  new EventEmitter();
   @ContentChild(TemplateRef) public itemTemplate: TemplateRef<ElementRef>;
   public selectedItem: any;
   public draggedIndex: number = -1;
@@ -33,9 +34,7 @@ export class NgxSortableComponent {
       return;
     }
     this.swapElements(index, index - 1);
-    // const temp = this.items[index];
-    // this.items[index] = this.items[index - 1];
-    // this.items[index - 1] = temp;
+    this.listSorted.emit(this.items);
   }
 
   public moveDown() {
@@ -44,9 +43,7 @@ export class NgxSortableComponent {
       return;
     }
     this.swapElements(index, index + 1);
-    // const temp = this.items[index];
-    // this.items[index] = this.items[index + 1];
-    // this.items[index + 1] = temp;
+    this.listSorted.emit(this.items);;
   }
   public onDrop($event: any, index: number) {
     // index is of the element on which the item is dropped
@@ -66,6 +63,7 @@ export class NgxSortableComponent {
     this.items.splice(droppedIndex, 0, item);
     this.draggedIndex = -1;
     this.onDragOverIndex = -1;
+    this.listSorted.emit(this.items);
   }
 
   public swapElements(oldIndex: number, newIndex: number) {

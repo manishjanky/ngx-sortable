@@ -7,12 +7,12 @@
     </div>
   </div>
   <ul class="sortable-list" [style.height]='listStyle.height'>
-    <div draggable="true" (click)="selectItem(item)" *ngFor="let item of items; let i = index;" [ngClass]="{'active': item == selectedItem}"
-      [attr.data-index]="index" (drop)="onDrop($event, i)" (dragover)="allowDrop($event,i)" (dragstart)="onDragStart($event, i)">
+    <li draggable="true" (click)="selectItem(item)" *ngFor="let item of items; let i = index;" [ngClass]="{'active': item == selectedItem}"
+      (drop)="onDrop($event, i)" (dragover)="allowDrop($event,i)" (dragstart)="onDragStart($event, i)">
       <div class="drop-zone" *ngIf="onDragOverIndex == i">
       </div>
       <ng-template ngFor [ngForOf]="[item]" [ngForTemplate]="itemTemplate">
       </ng-template>
-    </div>
+    </li>
   </ul>
 </div>
