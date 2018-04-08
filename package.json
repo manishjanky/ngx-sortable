@@ -55,8 +55,6 @@
     "compodoc": "compodoc -p tsconfig.json"
   },
   "dependencies": {
-    "@angular/forms": "^4.0.0",
-    "bootstrap": "^4.0.0"
   },
   "peerDependencies": {
     "@angular/common": "^4.0.0",
