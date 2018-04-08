@@ -75,7 +75,7 @@
       </ul>
 
       <pre class="codeBlock">
-          <strong>&lt;ngx-sortable [items]="items" [name]="'List'"&gt;
+          <strong>&lt;ngx-sortable [items]="items" [name]="'List'" (listSorted)="listSorted($event)"&gt;
               &lt;ng-template let-item&gt;
                   &lt;div class="sortable-list-item"&gt;
                   {{'{'}}{{'{'}}item{{'}'}}{{'}'}}

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { NgxSortableModule } from 'ngx-select-dropdown';
+import { NgxSortableModule } from 'ngx-sortable';
 import { AppComponent } from './app.component';
 
 
