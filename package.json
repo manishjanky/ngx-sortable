@@ -1,6 +1,6 @@
 {
   "name": "ngx-sortable",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "An angular 4 and above component for sorting list supporting drag and drop sort.",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.js",
@@ -54,8 +54,7 @@
     "tslint": "tslint",
     "compodoc": "compodoc -p tsconfig.json"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "@angular/common": "^4.0.0",
     "@angular/core": "^4.0.0"
