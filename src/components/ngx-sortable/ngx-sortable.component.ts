@@ -13,7 +13,8 @@ export class NgxSortableComponent {
   @Input() public name: string;
   @Input() public listStyle: any = {
     height: '250px',
-    width: '300px'
+    width: '300px',
+    dropZoneHeight:'50px'
   };
   @Output() listSorted: EventEmitter<any> =  new EventEmitter();
   @ContentChild(TemplateRef) public itemTemplate: TemplateRef<ElementRef>;

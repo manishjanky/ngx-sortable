@@ -47,7 +47,7 @@ class YourModule { ... }
 * use `<ngx-sortable></ngx-sortable>` in your templates to add sortable list in your view
 
 ````
-    <ngx-sortable [items]="items" [name]="'List'">
+    <ngx-sortable [items]="items" [name]="'List'" (listSorted)="listOrderChanged($event)">
         <ng-template let-item>
             <div class="sortable-list-item">
                 {{item}}
@@ -76,7 +76,9 @@ listStyle = {
 
 ### Output
 
-* `listSorted: Event` - when list is sorted emits listSorted event with updated order
+* `listSorted($event): Event` - when list is sorted emits listSorted event with updated order
+
+> Where `$event` is the sorted list
 
 ## Help Improve
 

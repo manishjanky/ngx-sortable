@@ -15,20 +15,6 @@ export class AppComponent {
     displayKey:"name", //if objects array passed which key to be displayed defaults to description
     search:true,
   };
-  selectedOptions=[{
-    "_id": "5a66d6c31d5e4e36c7711b7a",
-    "index": 0,
-    "balance": "$2,806.37",
-    "picture": "http://placehold.it/32x32",
-    "name": "Burns Dalton"
-  },
-  {
-    "_id": "5a66d6c3657e60c6073a2d22",
-    "index": 1,
-    "balance": "$2,984.98",
-    "picture": "http://placehold.it/32x32",
-    "name": "Mcintyre Lawson"
-  }];
   options=[
     {
       "_id": "5a66d6c31d5e4e36c7711b7a",
@@ -80,4 +66,22 @@ export class AppComponent {
       "name": "Goldie Barber"
     }
   ];
+  firstSortedList: any;
+  secondSortedList: any;
+  listStyle={
+    height:'250px',
+    width:'100%',
+    dropZoneHeight: '100px'
+  }
+  constructor(){
+    this.firstSortedList = this.options;
+    this.secondSortedList = this.options;
+  }
+  listSorted(list: any){
+    this.firstSortedList = list;
+  }
+
+  listSortedSecond(list: any){
+    this.secondSortedList = list;
+  }
 }

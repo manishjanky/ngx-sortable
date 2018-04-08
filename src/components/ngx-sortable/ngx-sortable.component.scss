@@ -10,6 +10,8 @@
         border-bottom: 1px solid #d9d9d9;
         height: 30px;
         background-image: linear-gradient(rgb(246, 247, 249) 0%, rgb(235, 237, 240) 100%);
+        box-sizing: content-box;
+        color: black;
         .sortable-name{
             vertical-align: middle;
             font-size: 25px;
