@@ -1,0 +1,177 @@
+<div class="container pt-1">
+  <div class="row white mb-0">
+    <div class="col s12 l6">
+      <h5>ngx-sortable demo</h5>
+    </div>
+    <div class="col s12 l6">
+      <a href="https://manishjanky.github.io/#/" class="blue-text right credits" target="_blank">Developed By:Manish</a>
+    </div>
+  </div>
+  <div class="center row">
+    <h1 class="blue-text">ngx-sortable</h1>
+
+    <h5 class="blue-text">An angular 4 and above component for sorting list supporting drag and drop sort.</h5>
+    <div>
+      <a href="https://github.com/manishjanky/ngx-sortable" class="btn blue" style="margin:10px;">
+        <span class="fa fa-github"> Github</span>
+      </a>
+      <a href="https://github.com/manishjanky/ngx-sortable/issues" class="btn blue" style="margin:10px;">
+        <span class="fa fa-bug"> Report a bug</span>
+      </a>
+    </div>
+  </div>
+  <div class="row nav-tabs white">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s2">
+          <a class="nav-link" [ngClass]="{'active':tab==1}" (click)="tab=1">Documentation</a>
+        </li>
+        <li class="tab col s2">
+          <a class="nav-link" [ngClass]="{'active':tab==2}" (click)="tab=2">Demo</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row white content" *ngIf="tab==1">
+    <div class="col s12 pt-1">
+      <h4>1.Installation</h4>
+      <pre class="codeBlock">
+        //using npm
+        <strong> npm install ngx-sortable</strong>
+
+        //using yarn
+        <strong> yarn add ngx-sortable</strong>
+        <strong> yarn install</strong></pre>
+
+    </div>
+    <div class="col s12 pt-1">
+      <h4>2.Using with webpack and tsc builds/ angular-cli builds</h4>
+      <ul>
+        <li>import NgxSortableModule from ngx-sortable</li>
+        <li>add NgxSortableModule to the imports of your NgModule</li>
+      </ul>
+      <pre class="codeBlock">
+        <strong>
+          import {{'{'}} NgxSortableModule {{'}'}} from 'ngx-sortable'
+        
+          @NgModule({{'{'}}
+            imports: [
+              ...,
+          
+              NgxSortableModule
+            ],
+            ...
+          })
+          class YourModule {{'{'}} ... {{'}'}}</strong></pre>
+    </div>
+    <div class="col s12 pt-1">
+      <ul>
+        <li>
+          use
+          <strong>&lt;ngx-sortable&gt;&lt;/ngx-sortable&gt;</strong> in your templates to add the sortable list in your view like
+          below
+        </li>
+        <li>a tag in you html will look like below with all the config</li>
+      </ul>
+
+      <pre class="codeBlock">
+          <strong>&lt;ngx-sortable [items]="items" [name]="'List'" (listSorted)="listSorted($event)"&gt;
+              &lt;ng-template let-item&gt;
+                  &lt;div class="sortable-list-item"&gt;
+                  {{'{'}}{{'{'}}item{{'}'}}{{'}'}}
+                  &lt;/div&gt;
+              &lt;/ng-template&gt;
+          &lt;/ngx-sortable&gt;
+        </strong></pre>
+      <div class="row">
+        <blockquote>
+          Where content inside
+          <strong>&lt;ng-template&gt;&lt;/ng-template&gt;</strong> is the template that will be used for displaying list items i.e
+          the template of the list item. Also the class can be named accordingly this is just an example. Create a class
+          and add it to your root style.css
+        </blockquote>
+      </div>
+    </div>
+    <div class="col s12 pt-1">
+      <h4>3.Config</h4>
+      <h6>Input</h6>
+      <ul>
+        <li>
+          <strong>items: any[]</strong> - array of items that are part of the list.
+        </li>
+        <li>
+          <strong>name: string</strong> - name of the list.
+        </li>
+        <li>
+          <strong>listStyle: any</strong> - list styles such as height, width.
+        </li>
+      </ul>
+      <pre class="codeBlock">
+          listStyle = {{'{'}}
+            width:'300px', //width of the list defaults to 300,
+            height: '250px', //height of the list defaults to 250,
+            dropZoneHeight: '50px' // height of the dropzone indicator defaults to 50
+            {{'}'}}</pre>
+      <h6>Output</h6>
+      <ul>
+        <li>
+          <strong>listSorted($event): Event</strong> - when list is sorted emits listSorted event with updated order
+         <blockquote>Where $event in the sorted list.</blockquote>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="row white content" *ngIf="tab==2">
+    <div class="col s12">
+      <h3>Demos</h3>
+      <h5>Default Config</h5>
+      <div class="row">
+        <div class="col s12 l6">
+            <ngx-sortable [items]="options" [name]="'List'" (listSorted)="listSorted($event)">
+                <ng-template let-item>
+                    <div class="sortable-list-item">
+                        {{item.name}}
+                    </div>
+                </ng-template>
+            </ngx-sortable>
+        </div>
+        <div class="col s12 l6 flow-text">
+         <ul style="margin-top:0">
+           <li><strong>Sorted List</strong></li>
+           <li *ngFor="let item of firstSortedList">
+            {{item.name}}
+           </li>
+         </ul>
+        </div>
+      </div>
+
+      <h5>Customized Options</h5>
+      <div class="row">
+        <div class="col s12">
+            <ngx-sortable [items]="options" [name]="'List'" [listStyle]="listStyle" (listSorted)="listSorted($event)">
+                <ng-template let-item>
+                    <div class="sortable-list-item">
+                       <p class="flow-text" style="margin:0">{{item.name}}</p>
+                       <blockquote style="margin:0;font-size:12px;"><span>Balance: {{item.balance}}</span></blockquote> 
+                    </div>
+                </ng-template>
+            </ngx-sortable>
+        </div>
+        <div class="col s12 flow-text">
+          <ul style="margin-top:0">
+              <li><strong>Sorted List</strong></li>
+              <li *ngFor="let item of secondSortedList">
+                  <div class="sortable-list-item">
+                      <p class="flow-text" style="margin:0">{{item.name}}</p>
+                      <blockquote style="margin:0;font-size:10px;"><span>Balance: {{item.balance}}</span></blockquote> 
+                   </div>
+              </li>
+            </ul>
+        </div>
+      </div>
+      <h4>More Features Coming Soon...</h4>
+    </div>
+  </div>
+</div>

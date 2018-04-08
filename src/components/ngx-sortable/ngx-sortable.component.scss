@@ -1,0 +1,69 @@
+.sortable-container {
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    ;
+    border-radius: 3px;
+    .sortable-header {
+        width: auto;
+        padding: 5px;
+        background: lightgray;
+        border-bottom: 1px solid #d9d9d9;
+        height: 30px;
+        background-image: linear-gradient(rgb(246, 247, 249) 0%, rgb(235, 237, 240) 100%);
+        box-sizing: content-box;
+        color: black;
+        .sortable-name{
+            vertical-align: middle;
+            font-size: 25px;
+        }
+        .sortable-buttons {
+            float: right;
+            height: 100%;
+            box-sizing: border-box;
+            button {
+                height: 30px;
+                width: 30px;
+                vertical-align: middle;
+                display: inline-block;
+                box-sizing: border-box;
+                margin-left: 5px;
+                border: 1px solid #2399e5;
+                color: #FFFFFF;
+                background: #2399e5;
+                -webkit-transition: background-color .2s;
+                -moz-transition: background-color .2s;
+                transition: background-color .2s;
+                border-radius: 5px;
+                outline: none;
+                &:disabled{
+                    cursor: not-allowed;
+                }
+                &:active, &:hover {
+                    border: 1px solid #156090;
+                    background: #186ba0;
+                    color: #ffffff;
+                    &:enabled{
+                        cursor: pointer;
+                    }
+                    
+                }
+            }
+        }
+    }
+    .sortable-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0px;
+        overflow: auto;
+        .drop-zone{
+            height: 30px;
+            background: rgba(225, 219, 250, 0.5);
+            opacity: 0.5px;
+            border: 2px dotted rgb(225, 219, 250);
+        }
+        .active {
+            background: #3f94e9 !important;
+            color: white;
+        }
+    }
+}
