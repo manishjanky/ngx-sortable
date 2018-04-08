@@ -14,9 +14,9 @@ export class NgxSortableComponent {
   @Input() public listStyle: any = {
     height: '250px',
     width: '300px',
-    dropZoneHeight:'50px'
+    dropZoneHeight: '50px'
   };
-  @Output() listSorted: EventEmitter<any> =  new EventEmitter();
+  @Output() public listSorted: EventEmitter<any> = new EventEmitter();
   @ContentChild(TemplateRef) public itemTemplate: TemplateRef<ElementRef>;
   public selectedItem: any;
   public draggedIndex: number = -1;
@@ -44,7 +44,7 @@ export class NgxSortableComponent {
       return;
     }
     this.swapElements(index, index + 1);
-    this.listSorted.emit(this.items);;
+    this.listSorted.emit(this.items);
   }
   public onDrop($event: any, index: number) {
     // index is of the element on which the item is dropped

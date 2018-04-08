@@ -5,7 +5,7 @@ import { NgxSortableComponent } from './ngx-sortable.component';
 describe('NgxSortableComponent', () => {
   let component: NgxSortableComponent;
   let fixture: ComponentFixture<NgxSortableComponent>;
-  const items = ['Item1', 'item2', 'Item3', 'item4', 'Item5', 'item6']
+  const items = ['Item1', 'item2', 'Item3', 'item4', 'Item5', 'item6'];
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [NgxSortableComponent]
@@ -31,14 +31,14 @@ describe('NgxSortableComponent', () => {
   });
 
   it('should set the selected item', () => {
-    component.items = JSON.parse(JSON.stringify(items));;
+    component.items = JSON.parse(JSON.stringify(items));
     const item1 = items[2];
     component.selectItem(items[2]);
     expect(component.selectedItem).toEqual(item1);
   });
 
   it('should move down the selected item', () => {
-    component.items = JSON.parse(JSON.stringify(items));;
+    component.items = JSON.parse(JSON.stringify(items));
     const item1 = items[2];
     component.selectItem(items[2]);
     component.moveDown();
