@@ -26,3 +26,13 @@ tmp
 
 # Library files
 src/
+
+# files not required
+webpack*
+ts*
+karma*
+.travis*
+gulpfile*
+yarn*
+.editorconfig
+CONTRIBUTING*
