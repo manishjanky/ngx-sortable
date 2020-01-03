@@ -1,15 +1,13 @@
 # ngx-sortable
 
-[![GitHub license](https://img.shields.io/github/license/manishjanky/ngx-sortable.svg)](https://github.com/me-and/mdf/blob/master/LICENSE)
-[![npm](https://img.shields.io/npm/v/ngx-sortable.svg)]()
-[![Build Status](https://travis-ci.org/manishjanky/ngx-sortable.svg?branch=master)](https://travis-ci.org/manishjanky/ngx-sortable)
-[![Codecov branch](https://codecov.io/gh/manishjanky/ngx-sortable/branch/master/graphs/badge.svg)]()
-[![npm](https://img.shields.io/npm/dt/ngx-sortable.svg)]()
-[![GitHub top language](https://img.shields.io/github/languages/top/manishjanky/ngx-sortable.svg)]()
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/manishjanky/ngx-sortable.svg)]()
-[![GitHub issues](https://img.shields.io/github/issues/manishjanky/ngx-sortable.svg)]()
-[![GitHub closed issues](https://img.shields.io/github/issues-closed/manishjanky/ngx-sortable.svg)]()
-[![GitHub contributors](https://img.shields.io/github/contributors/manishjanky/ngx-sortable.svg)]()
+[![GitHub license](https://img.shields.io/github/license/debba/ngx-sortable.svg)](https://github.com/me-and/mdf/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/ngx-sort.svg)]()
+[![npm](https://img.shields.io/npm/dt/ngx-sort.svg)]()
+[![GitHub top language](https://img.shields.io/github/languages/top/debba/ngx-sortable.svg)]()
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/debba/ngx-sortable.svg)]()
+[![GitHub issues](https://img.shields.io/github/issues/debba/ngx-sortable.svg)]()
+[![GitHub closed issues](https://img.shields.io/github/issues-closed/debba/ngx-sortable.svg)]()
+[![GitHub contributors](https://img.shields.io/github/contributors/debba/ngx-sortable.svg)]()
 
 `ngx-sortable` an angular 4 and above component for sorting list supporting drag and drop sort.
 
@@ -67,6 +65,8 @@ class YourModule { ... }
 * `items: any[]` - array of list items.
 * `name: string` - List name that will be shown in the header.
 * `listStyle: any` - list styles such as `height, width`.
+* `active: boolean` - you can use this option to activate / deactivate the sorting programmatically.
+
 ````
 listStyle = {
         width:'300px', //width of the list defaults to 300
