@@ -9,7 +9,7 @@ import {
   styleUrls: ['./ngx-sortable.component.scss']
 })
 export class NgxSortableComponent {
-  @Input() public active: boolean;
+  @Input() public active: boolean = true;
   @Input() public items: any[];
   @Input() public name: string;
   @Input() public listStyle: any = {

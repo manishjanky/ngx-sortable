@@ -1,6 +1,6 @@
 {
-  "name": "ngx-sortable" ,
-  "version": "1.0.2" ,
+  "name": "ngx-sort" ,
+  "version": "1.0.4" ,
   "description": "An angular 4 and above component for sorting list supporting drag and drop sort." ,
   "main": "./dist/index.umd.js" ,
   "module": "./dist/index.js" ,
@@ -31,12 +31,12 @@
   ],
   "repository": {
     "type": "git" ,
-    "url": "https://github.com/manishjanky/ngx-sortable.git"
+    "url": "https://github.com/debba/ngx-sortable.git"
   } ,
   "bugs": {
-    "url": "https://github.com/manishjanky/ngx-sortable/issues"
+    "url": "https://github.com/debba/ngx-sortable/issues"
   } ,
-  "homepage": "https://github.com/manishjanky/ngx-sortable#readme" ,
+  "homepage": "https://github.com/debba/ngx-sortable#readme" ,
   "scripts": {
     "build": "npm run build:esm && npm run build:umd" ,
     "build:esm": "gulp inline-templates && npm run ngcompile" ,
