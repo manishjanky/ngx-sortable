@@ -18,8 +18,8 @@ export class NgxSortableComponent {
   };
   @Input() public unselectedStyle: any;
   @Input() public selectedStyle: any = {
-    background: '#3f94e9 !important',
-    color: 'white'
+    'color': 'white',
+    'background': '#3f94e9'
   };
   @Output() public listSorted: EventEmitter<any> = new EventEmitter();
   @ContentChild(TemplateRef) public itemTemplate: TemplateRef<ElementRef>;
