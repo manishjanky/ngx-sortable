@@ -17,6 +17,7 @@
 * Custom template
 * Customizable
 * Drag and drop sorting
+* ability to change the background of selected items
 
 ## Examples
 
