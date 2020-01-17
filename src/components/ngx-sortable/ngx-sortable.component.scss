@@ -45,7 +45,7 @@
                     &:enabled{
                         cursor: pointer;
                     }
-                    
+
                 }
             }
         }
@@ -60,10 +60,6 @@
             background: rgba(225, 219, 250, 0.5);
             opacity: 0.5px;
             border: 2px dotted rgb(225, 219, 250);
-        }
-        .active {
-            background: #3f94e9 !important;
-            color: white;
         }
     }
 }

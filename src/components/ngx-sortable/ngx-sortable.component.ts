@@ -16,6 +16,11 @@ export class NgxSortableComponent {
     width: '300px',
     dropZoneHeight: '50px'
   };
+  @Input() public unselectedStyle: any;
+  @Input() public selectedStyle: any = {
+    'color': 'white',
+    'background': '#3f94e9'
+  };
   @Output() public listSorted: EventEmitter<any> = new EventEmitter();
   @ContentChild(TemplateRef) public itemTemplate: TemplateRef<ElementRef>;
   public selectedItem: any;
