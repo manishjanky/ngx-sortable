@@ -67,6 +67,7 @@ class YourModule { ... }
 * `items: any[]` - array of list items.
 * `name: string` - List name that will be shown in the header.
 * `listStyle: any` - list styles such as `height, width`.
+* `showHeader: boolean` -  flag to hide / show header default is true
 ````
 listStyle = {
         width:'300px', //width of the list defaults to 300
