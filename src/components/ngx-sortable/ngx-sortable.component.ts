@@ -11,6 +11,7 @@ import {
 export class NgxSortableComponent {
   @Input() public items: any[];
   @Input() public name: string;
+  @Input() public showHeader: boolean = true;
   @Input() public listStyle: any = {
     height: '250px',
     width: '300px',
