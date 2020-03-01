@@ -1,6 +1,6 @@
 {
   "name": "ngx-sortable",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An angular 4 and above component for sorting list supporting drag and drop sort.",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.js",
