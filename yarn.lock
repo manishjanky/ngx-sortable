@@ -39,8 +39,8 @@
     tslib "^2.0.0"
 
 "@angular/core@>=4.0.0":
-  version "11.0.4"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-11.0.4.tgz#8eebb6a550dc24e4d53f642c8a78a0da2830cd5b"
+  version "11.0.5"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-11.0.5.tgz#b8c448c3cd4f6dae7327cc1ba4ee2aa29c8dbc26"
   dependencies:
     tslib "^2.0.0"
 
