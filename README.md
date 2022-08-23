@@ -17,6 +17,7 @@
 * Custom template
 * Customizable
 * Drag and drop sorting
+* Remove elements
 
 ## Examples
 
@@ -46,6 +47,7 @@ class YourModule { ... }
 
 * use `<ngx-sortable></ngx-sortable>` in your templates to add sortable list in your view
 
+## Deprecated
 ````
     <ngx-sortable [items]="items" [name]="'List'" (listSorted)="listOrderChanged($event)">
         <ng-template let-item>
@@ -55,8 +57,19 @@ class YourModule { ... }
         </ng-template>
     </ngx-sortable>
 ````
+## `v2.0.0` onwards use below
+````
+    <ngx-sortable [items]="items" [name]="'List'" (listSorted)="listOrderChanged($event)">
+        <ng-template let-item="item">
+            <div class="sortable-list-item">
+                {{item}}
+            </div>
+        </ng-template>
+    </ngx-sortable>
+````
 
-> Where content inside ``<ng-template> </ng-template>`` is the template that will be used for displaying list items. Also the class can be named accordingly this is just an example. Create a class and add it to your root style.css
+Where content inside ``<ng-template> </ng-template>`` is the template that will be used for displaying list items. Also the class can be named accordingly this is just an example. Create a class and add it to your root style.css
+> Notice the difference in accessing the `item` in above two examples. Also from `v2.0.0` onwards index of the item is also available in the template similar to `let-item="item"` use `let-i="index"` and `i` will be the index variable available in the template.
 
 
 
@@ -68,6 +81,7 @@ class YourModule { ... }
 * `name: string` - List name that will be shown in the header.
 * `listStyle: any` - list styles such as `height, width`.
 * `showHeader: boolean` -  flag to hide / show header default is true
+* `removeOnDropOutside: boolean` -  flag to enable remove items by dragging and dropping them outside the list. Default is false
 ````
 listStyle = {
         width:'300px', //width of the list defaults to 300
@@ -81,6 +95,39 @@ listStyle = {
 
 > Where `$event` is the sorted list
 
+* `dragStart($event): Event` -  emitted when an item is seleceted and starts dragging
+> Where ``$event:{
+  event: Javascript event,
+  itemIndex: current item index,
+  newIndex: -1,
+  item: selected item}
+``
+
+* `drop($event): Event` - emitted when an item is dropped at the new index
+> Where ``$event:{
+  event: Javascript event,
+  itemIndex: current item index,
+  newIndex: new item index,
+  item: selected item}
+``
+
+* `moveDown($event): Event` - emitted when an item is moved down in the list using the sort arrows
+> Where ``$event:{
+  itemIndex: current item index,
+  newIndex: new item index,
+  item: selected item}
+``
+* `moveUp($event): Event` - emitted when an item is moved up in the list using sort arrows
+> Where ``$event:{
+  itemIndex: current item index,
+  newIndex: new item index,
+  item: selected item}
+``
+* `remove($event): Event` - emitted when an item is removed from the list by dropping out, only works when `removeOnDropOutside` is set to true
+> Where ``$event:{
+  itemIndex: current item index,
+  item: selected item}
+``
 ## Help Improve
 
 Found a bug or an issue with this? [Open a new issue](https://github.com/manishjanky/ngx-sortable/issues) here on GitHub.

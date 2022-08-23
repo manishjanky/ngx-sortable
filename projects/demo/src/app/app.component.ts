@@ -12,8 +12,7 @@ export class AppComponent {
       "Burns Dalton","Mcintyre Lawson","Amie Franklin","Jocelyn Horton","Fischer Erickson", "Medina Underwood","Goldie Barber"
   ]
   config = {
-    displayKey:"name", //if objects array passed which key to be displayed defaults to description
-    search:true,
+    displayKey:"name", //if objects array passed which key to be displayed defaults to description,
   };
   options=[
     {

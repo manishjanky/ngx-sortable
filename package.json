@@ -36,7 +36,7 @@
     "start": "ng serve demo",
     "build": "ng build ngx-sortable --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test ngx-sortable",
+    "test": "ng test ngx-sortable --no-watch --code-coverage",
     "lint": "ng lint ngx-sortable",
     "publish": "ng build ngx-sortable --configuration production && cd dist/ngx-sortable && npm publish",
     "ci": "npm run lint && npm run test && npm run build",

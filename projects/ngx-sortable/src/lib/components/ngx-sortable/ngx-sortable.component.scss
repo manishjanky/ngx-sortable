@@ -1,7 +1,7 @@
 .sortable-container {
     width: 100%;
     border: 1px solid #d9d9d9;
-    ;
+    position: static;
     border-radius: 3px;
     .sortable-header {
         width: auto;
@@ -55,13 +55,19 @@
         margin: 0;
         padding: 0px;
         overflow: auto;
+        position: static;
         .drop-zone{
-            height: 30px;
             background: rgba(225, 219, 250, 0.5);
             opacity: 0.5px;
             border: 2px dotted rgb(225, 219, 250);
         }
+        .remove{
+            background: rgba(248, 210, 181, 0.5);
+            text-align: center;
+
+        }
         .active {
+            cursor: grab;
             background: #3f94e9;
             color: white;
         }

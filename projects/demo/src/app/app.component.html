@@ -130,9 +130,9 @@
       <div class="row">
         <div class="col s12 l6">
             <ngx-sortable [items]="options" [name]="'List'" (listSorted)="listSorted($event)">
-                <ng-template let-item>
+                <ng-template let-item="item" let-i="index">
                     <div class="sortable-list-item">
-                        {{item.name}}
+                        {{i}}-{{item.name}}
                     </div>
                 </ng-template>
             </ngx-sortable>
@@ -151,7 +151,7 @@
       <div class="row">
         <div class="col s12">
             <ngx-sortable [items]="options" [name]="'List'" [listStyle]="listStyle" (listSorted)="listSorted($event)">
-                <ng-template let-item>
+                <ng-template let-item="item">
                     <div class="sortable-list-item">
                        <p class="flow-text" style="margin:0">{{item.name}}</p>
                        <blockquote style="margin:0;font-size:12px;"><span>Balance: {{item.balance}}</span></blockquote> 

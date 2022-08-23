@@ -17,6 +17,7 @@
 * Custom template
 * Customizable
 * Drag and drop sorting
+* Remove elements
 
 ## Examples
 
@@ -68,6 +69,7 @@ class YourModule { ... }
 * `name: string` - List name that will be shown in the header.
 * `listStyle: any` - list styles such as `height, width`.
 * `showHeader: boolean` -  flag to hide / show header default is true
+* `removeOnDropOutside: boolean` -  flag to enable remove items by dragging and dropping them outside the list. Default is false
 ````
 listStyle = {
         width:'300px', //width of the list defaults to 300
@@ -81,6 +83,39 @@ listStyle = {
 
 > Where `$event` is the sorted list
 
+* `dragStart($event): Event` -  emitted when an item is seleceted and starts dragging
+> Where ``$event:{
+  event: Javascript event,
+  itemIndex: current item index,
+  newIndex: -1,
+  item: selected item}
+``
+
+* `drop($event): Event` - emitted when an item is dropped at the new index
+> Where ``$event:{
+  event: Javascript event,
+  itemIndex: current item index,
+  newIndex: new item index,
+  item: selected item}
+``
+
+* `moveDown($event): Event` - emitted when an item is moved down in the list using the sort arrows
+> Where ``$event:{
+  itemIndex: current item index,
+  newIndex: new item index,
+  item: selected item}
+``
+* `moveUp($event): Event` - emitted when an item is moved up in the list using sort arrows
+> Where ``$event:{
+  itemIndex: current item index,
+  newIndex: new item index,
+  item: selected item}
+``
+* `remove($event): Event` - emitted when an item is removed from the list by dropping out, only works when `removeOnDropOutside` is set to true
+> Where ``$event:{
+  itemIndex: current item index,
+  item: selected item}
+``
 ## Help Improve
 
 Found a bug or an issue with this? [Open a new issue](https://github.com/manishjanky/ngx-sortable/issues) here on GitHub.

@@ -41,14 +41,14 @@ describe('NgxSortableComponent', () => {
     component.items = JSON.parse(JSON.stringify(items));
     const item1 = items[2];
     component.selectItem(items[2]);
-    component.moveDown();
+    component.onMoveDown();
     expect(component.items[3]).toEqual(item1);
   });
 
   it('should move down the selected item', () => {
     component.items = ['item9'];
     component.selectItem('item9');
-    component.moveDown();
+    component.onMoveDown();
     expect(component.items[0]).toEqual('item9');
   });
 
@@ -56,14 +56,14 @@ describe('NgxSortableComponent', () => {
     component.items = JSON.parse(JSON.stringify(items));
     const item1 = items[2];
     component.selectItem(items[2]);
-    component.moveUp();
+    component.onMoveUp();
     expect(component.items[1]).toEqual(item1);
   });
 
   it('should move up the selected item', () => {
     component.items = ['item9'];
     component.selectItem('item9');
-    component.moveUp();
+    component.onMoveUp();
     expect(component.items[0]).toEqual('item9');
   });
 
@@ -88,4 +88,51 @@ describe('NgxSortableComponent', () => {
     component.onDrop(new Event('drop'), 2);
     expect(component.items[2]).toEqual(item1);
   });
+
+  it('should remove on drop of element otside list', () => {
+    component.items = JSON.parse(JSON.stringify(items));
+    const item1 = items[4];
+    component.selectedItem = items[4];
+    component.draggedIndex = 4;
+    component.onRemoveDrop();
+    expect(component.items.indexOf(item1)).toEqual(-1);
+  });
+
+  it('should remove on drop of element otside list', () => {
+    component.items = JSON.parse(JSON.stringify(items));
+    const item1 = items[4];
+    component.selectedItem = items[4];
+    component.draggedIndex = 4;
+    component.onDrop(new Event('drop'), 4);
+    expect(component.items.indexOf(item1)).toEqual(4);
+  });
+
+  it('should remove on drop of element otside list', () => {
+    component.items = JSON.parse(JSON.stringify(items));
+    const item1 = items[4];
+    component.selectedItem = items[4];
+    component.draggedIndex = 4;
+    component.onDrop(new Event('drop'), -1);
+    expect(component.items.indexOf(item1)).toEqual(4);
+  });
+
+  it('should handle on dragend else', () => {
+    component.items = JSON.parse(JSON.stringify(items));
+    const item1 = items[4];
+    component.selectedItem = items[4];
+    component.draggedIndex = 4;
+    component.onDragEnd();
+    expect(component.items.indexOf(item1)).toEqual(4);
+  });
+
+  it('should handle on dragend if', () => {
+    component.items = JSON.parse(JSON.stringify(items));
+    const item1 = items[4];
+    component.removeOnDropOutside = true;
+    component.selectedItem = items[4];
+    component.draggedIndex = 4;
+    component.onDragEnd();
+    expect(component.items.indexOf(item1)).toEqual(-1);
+  });
 });
+
