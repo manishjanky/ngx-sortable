@@ -1,6 +1,7 @@
+import { NgForOfContext } from '@angular/common';
 import {
   Component, Input, Output, ContentChild, EventEmitter,
-  TemplateRef, ElementRef
+  TemplateRef
 } from '@angular/core';
 
 @Component({
@@ -9,21 +10,21 @@ import {
   styleUrls: ['./ngx-sortable.component.scss']
 })
 export class NgxSortableComponent {
-  @Input() public items: any[];
+  @Input() public items: any[] = [];
   @Input() public name: string;
-  @Input() public showHeader: boolean = true;
+  @Input() public showHeader = true;
   @Input() public listStyle: any = {
     height: '250px',
     width: '300px',
     dropZoneHeight: '50px'
   };
   @Output() public listSorted: EventEmitter<any> = new EventEmitter();
-  @ContentChild(TemplateRef) public itemTemplate: TemplateRef<ElementRef>;
+  @ContentChild(TemplateRef) public itemTemplate: TemplateRef<NgForOfContext<any>>;
   public selectedItem: any;
-  public draggedIndex: number = -1;
-  public onDragOverIndex: number = -1;
+  public draggedIndex = -1;
+  public onDragOverIndex = -1;
   constructor() {
-    console.log('Intializing...');
+    // console.log('Intializing...');
   }
 
   public selectItem(item: any) {

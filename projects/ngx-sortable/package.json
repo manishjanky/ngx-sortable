@@ -1,0 +1,44 @@
+{
+  "name": "ngx-sortable",
+  "version": "1.0.3",
+  "description": "An angular 4 and above component for sorting list supporting drag and drop sort.",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "angular4",
+    "library",
+    "ng",
+    "ngx-sortable",
+    "list",
+    "sortable",
+    "drag",
+    "drop",
+    "sort",
+    "typescript"
+  ],
+  "author": {
+    "name": "Manish Kumar",
+    "url": "https://www.linkedin.com/in/manishjanky/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manishjanky/ngx-sortable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/manishjanky/ngx-sortable/issues"
+  },
+  "homepage": "https://github.com/manishjanky/ngx-sortable#readme",
+  "peerDependencies": {
+    "@angular/common": ">=4.0.0",
+    "@angular/core": ">=4.0.0",
+    "tslib": "^2.3.0"
+  },
+  "dependencies": {
+   
+  },"scripts":{
+    "postversion": "git push && git push --tags"
+  }
+}

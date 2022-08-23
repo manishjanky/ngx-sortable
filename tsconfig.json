@@ -1,36 +1,39 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "noEmit": true,
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictPropertyInitialization": false,
     "sourceMap": true,
+    "paths": {
+      "ngx-sortable": [
+        "dist/ngx-sortable"
+      ]
+    },
     "declaration": false,
-    "noImplicitAny": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2020",
+    "module": "es2020",
     "lib": [
-      "es7",
+      "es2020",
       "dom"
-    ],
-    "typeRoots" : [
-      "./node_modules/@types"
-    ],
-    "types": [
-      "jasmine",
-      "karma",
-      "node",
-      "webpack",
-      "webpack-env"
     ]
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "src/**/*.spec.ts",
-    "node_modules",
-    "demo",
-    "dist"
-  ]
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictPropertyInitialization": false,
+    "strictTemplates": true
+  }
 }
