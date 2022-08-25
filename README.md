@@ -103,7 +103,7 @@ listStyle = {
   item: selected item}
 ``
 
-* `drop($event): Event` - emitted when an item is dropped at the new index
+* `dropped($event): Event` - emitted when an item is dropped at the new index
 > Where ``$event:{
   event: Javascript event,
   itemIndex: current item index,

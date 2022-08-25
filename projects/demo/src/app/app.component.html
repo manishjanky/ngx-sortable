@@ -47,7 +47,9 @@
     <div class="col s12 pt-1">
       <h4>2.Using with webpack and tsc builds/ angular-cli builds</h4>
       <ul>
-        <li>import NgxSortableModule from ngx-sortable</li>
+        <li>
+          <pre class="codeBlock">import NgxSortableModule from ngx-sortable</pre>
+        </li>
         <li>add NgxSortableModule to the imports of your NgModule</li>
       </ul>
       <pre class="codeBlock">
@@ -68,7 +70,8 @@
       <ul>
         <li>
           use
-          <strong>&lt;ngx-sortable&gt;&lt;/ngx-sortable&gt;</strong> in your templates to add the sortable list in your view like
+          <strong>&lt;ngx-sortable&gt;&lt;/ngx-sortable&gt;</strong> in your templates to add the sortable list in your
+          view like
           below
         </li>
         <li>a tag in you html will look like below with all the config</li>
@@ -83,12 +86,32 @@
               &lt;/ng-template&gt;
           &lt;/ngx-sortable&gt;
         </strong></pre>
+      <h5>From v2.0.0 onwards use below syntax instead</h5>
+      <pre class="codeBlock">
+          <strong>&lt;ngx-sortable [items]="items" [name]="'List'" (listSorted)="listSorted($event)"&gt;
+              &lt;ng-template let-item="item"&gt;
+                  &lt;div class="sortable-list-item"&gt;
+                  {{'{'}}{{'{'}}item{{'}'}}{{'}'}}
+                  &lt;/div&gt;
+              &lt;/ng-template&gt;
+          &lt;/ngx-sortable&gt;
+        </strong></pre>
       <div class="row">
         <blockquote>
           Where content inside
-          <strong>&lt;ng-template&gt;&lt;/ng-template&gt;</strong> is the template that will be used for displaying list items i.e
+          <strong>&lt;ng-template&gt;&lt;/ng-template&gt;</strong> is the template that will be used for displaying list
+          items i.e
           the template of the list item. Also the class can be named accordingly this is just an example. Create a class
           and add it to your root style.css
+        </blockquote>
+        <blockquote>
+          Notice the difference in accessing the
+          <pre>item</pre> in above two examples. Also from <strong> v2.0.0</strong> onwards index of the
+          item is also available in the template similar to
+          <pre>let-item="item"</pre> use
+          <pre>let-i="index"</pre> and <strong>i</strong> will be the
+          index variable available in the template.
+          Where content inside
         </blockquote>
       </div>
     </div>
@@ -116,7 +139,7 @@
       <ul>
         <li>
           <strong>listSorted($event): Event</strong> - when list is sorted emits listSorted event with updated order
-         <blockquote>Where $event in the sorted list.</blockquote>
+          <blockquote>Where $event in the sorted list.</blockquote>
         </li>
       </ul>
     </div>
@@ -128,47 +151,106 @@
       <h3>Demos</h3>
       <h5>Default Config</h5>
       <div class="row">
-        <div class="col s12 l6">
-            <ngx-sortable [items]="options" [name]="'List'" (listSorted)="listSorted($event)">
-                <ng-template let-item="item" let-i="index">
-                    <div class="sortable-list-item">
-                        {{i}}-{{item.name}}
-                    </div>
-                </ng-template>
-            </ngx-sortable>
+        <div class="col l6 s12">
+          <ngx-sortable [items]="options" [name]="'List'" (listSorted)="listSorted($event)">
+            <ng-template let-item="item" let-i="index">
+              <div class="sortable-list-item">
+                {{i}}-{{item.name}}
+              </div>
+            </ng-template>
+          </ngx-sortable>
         </div>
-        <div class="col s12 l6 flow-text">
-         <ul style="margin-top:0">
-           <li><strong>Sorted List</strong></li>
-           <li *ngFor="let item of firstSortedList">
-            {{item.name}}
-           </li>
-         </ul>
+        <div class="col l6 s12 flow-text">
+          <ul style="margin-top:0">
+            <li><strong>Sorted List</strong></li>
+            <li *ngFor="let item of firstSortedList">
+              {{item.name}}
+            </li>
+          </ul>
         </div>
       </div>
 
       <h5>Customized Options</h5>
       <div class="row">
-        <div class="col s12">
-            <ngx-sortable [items]="options" [name]="'List'" [listStyle]="listStyle" (listSorted)="listSorted($event)">
-                <ng-template let-item="item">
-                    <div class="sortable-list-item">
-                       <p class="flow-text" style="margin:0">{{item.name}}</p>
-                       <blockquote style="margin:0;font-size:12px;"><span>Balance: {{item.balance}}</span></blockquote> 
-                    </div>
-                </ng-template>
-            </ngx-sortable>
+        <div class="col l6 s12">
+          <ngx-sortable [items]="options" [name]="'List'" [listStyle]="listStyle" (listSorted)="listSorted($event)">
+            <ng-template let-item="item">
+              <div class="sortable-list-item">
+                <p class="flow-text" style="margin:0">{{item.name}}</p>
+                <blockquote style="margin:0;font-size:12px;"><span>Balance: {{item.balance}}</span></blockquote>
+              </div>
+            </ng-template>
+          </ngx-sortable>
         </div>
-        <div class="col s12 flow-text">
+        <div class="col l6 s12 flow-text">
           <ul style="margin-top:0">
-              <li><strong>Sorted List</strong></li>
-              <li *ngFor="let item of secondSortedList">
-                  <div class="sortable-list-item">
-                      <p class="flow-text" style="margin:0">{{item.name}}</p>
-                      <blockquote style="margin:0;font-size:10px;"><span>Balance: {{item.balance}}</span></blockquote> 
-                   </div>
-              </li>
-            </ul>
+            <li><strong>Sorted List</strong></li>
+            <li *ngFor="let item of secondSortedList">
+              <div class="sortable-list-item">
+                <p class="flow-text" style="margin:0">{{item.name}}</p>
+                <blockquote style="margin:0;font-size:10px;"><span>Balance: {{item.balance}}</span></blockquote>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <h5>Drag start and Stop</h5>
+      <div class="row">
+        <div class="col l6 m12 s12">
+          <ngx-sortable (dragStart)="dragStartStop($event,'drag')" (dropped)="dragStartStop($event,'drop')"
+            [items]="options" [name]="'List'" [listStyle]="listStyle" (listSorted)="listSorted($event)">
+            <ng-template let-item="item">
+              <div class="sortable-list-item">
+                <p class="flow-text" style="margin:0">{{item.name}}</p>
+                <blockquote style="margin:0;font-size:12px;"><span>Balance: {{item.balance}}</span></blockquote>
+              </div>
+            </ng-template>
+          </ngx-sortable>
+        </div>
+        <div class="col l6 m12 s12">
+          Drag start/stop event: {{dragStartStopEvent | json}}
+        </div>
+      </div>
+
+      <h5>Arrow sort events</h5>
+      <div class="row">
+        <div class="col l6 m12 s12">
+          <ngx-sortable (moveUp)="moveButton($event)" (moveDown)="moveButton($event)" [items]="options" [name]="'List'"
+            [listStyle]="listStyle" (listSorted)="listSorted($event)">
+            <ng-template let-item="item">
+              <div class="sortable-list-item">
+                <p class="flow-text" style="margin:0">{{item.name}}</p>
+                <blockquote style="margin:0;font-size:12px;"><span>Balance: {{item.balance}}</span></blockquote>
+              </div>
+            </ng-template>
+          </ngx-sortable>
+        </div>
+        <div class="col l6 m12 s12">
+          Arrow button sort event: {{moveButtonEvent | json}}
+        </div>
+      </div>
+
+      <h5>Remove element(s)</h5>
+      <div class="row">
+        <div class="col l6 m12 s12">
+          <ngx-sortable [removeOnDropOutside]="true" (moveUp)="moveButton($event)" (moveDown)="moveButton($event)"
+            [items]="newOptions" [name]="'List'" [listStyle]="listStyle" (listSorted)="removedList = $event">
+            <ng-template let-item="item">
+              <div class="sortable-list-item">
+                <p class="flow-text" style="margin:0">{{item.name}}</p>
+                <blockquote style="margin:0;font-size:12px;"><span>Balance: {{item.balance}}</span></blockquote>
+              </div>
+            </ng-template>
+          </ngx-sortable>
+        </div>
+        <div class="col l6 m12 s12">
+          <ul style="margin-top:0">
+            <li><strong>List after removed element</strong></li>
+            <li *ngFor="let item of removedList">
+              {{item.name}}
+            </li>
+          </ul>
         </div>
       </div>
       <h4>More Features Coming Soon...</h4>

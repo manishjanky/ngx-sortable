@@ -20,7 +20,7 @@ export class NgxSortableComponent {
   @Input() public showHeader = true;
   @Input() public removeOnDropOutside = false;
   @Output() public dragStart = new EventEmitter();
-  @Output() public drop = new EventEmitter();
+  @Output() public dropped = new EventEmitter();
   @Output() public moveDown = new EventEmitter();
   @Output() public moveUp = new EventEmitter();
   @Output() public remove = new EventEmitter();
@@ -90,7 +90,7 @@ export class NgxSortableComponent {
     }
     const dragIndex = this.draggedIndex;
     this.handleDrop(index);
-    this.drop.emit({
+    this.dropped.emit({
       event: $event,
       itemIndex: dragIndex,
       newIndex: index,
@@ -103,6 +103,7 @@ export class NgxSortableComponent {
     $event.preventDefault();
   }
   public onDragStart($event: any, index: number) {
+    this.selectItem(this.items[index]);
     this.draggedIndex = index;
     this.dragStart.emit({
       event: $event,
