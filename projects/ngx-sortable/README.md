@@ -47,6 +47,7 @@ class YourModule { ... }
 
 * use `<ngx-sortable></ngx-sortable>` in your templates to add sortable list in your view
 
+## Deprecated
 ````
     <ngx-sortable [items]="items" [name]="'List'" (listSorted)="listOrderChanged($event)">
         <ng-template let-item>
@@ -56,8 +57,19 @@ class YourModule { ... }
         </ng-template>
     </ngx-sortable>
 ````
+## `v2.0.0` onwards use below
+````
+    <ngx-sortable [items]="items" [name]="'List'" (listSorted)="listOrderChanged($event)">
+        <ng-template let-item="item">
+            <div class="sortable-list-item">
+                {{item}}
+            </div>
+        </ng-template>
+    </ngx-sortable>
+````
 
-> Where content inside ``<ng-template> </ng-template>`` is the template that will be used for displaying list items. Also the class can be named accordingly this is just an example. Create a class and add it to your root style.css
+Where content inside ``<ng-template> </ng-template>`` is the template that will be used for displaying list items. Also the class can be named accordingly this is just an example. Create a class and add it to your root style.css
+> Notice the difference in accessing the `item` in above two examples. Also from `v2.0.0` onwards index of the item is also available in the template similar to `let-item="item"` use `let-i="index"` and `i` will be the index variable available in the template.
 
 
 
