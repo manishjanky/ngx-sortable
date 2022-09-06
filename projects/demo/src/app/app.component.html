@@ -152,7 +152,7 @@
       <h5>Default Config</h5>
       <div class="row">
         <div class="col l6 s12">
-          <ngx-sortable [items]="options" [name]="'List'" (listSorted)="listSorted($event)">
+          <ngx-sortable [arrowKeySort]="true" [commandKey]="'metaKey'"  [items]="options" [name]="'List'" (listSorted)="listSorted($event)">
             <ng-template let-item="item" let-i="index">
               <div class="sortable-list-item">
                 {{i}}-{{item.name}}

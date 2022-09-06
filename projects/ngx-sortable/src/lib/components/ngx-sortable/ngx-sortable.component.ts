@@ -8,7 +8,7 @@ import {
   TemplateRef,
   HostListener,
 } from "@angular/core";
-
+import { CommandKey, SortableEvent } from "../../types/ngx-sortable.types";
 @Component({
   selector: "ngx-sortable",
   templateUrl: "./ngx-sortable.component.html",
@@ -19,11 +19,11 @@ export class NgxSortableComponent {
   @Input() public name: string;
   @Input() public showHeader = true;
   @Input() public removeOnDropOutside = false;
-  @Output() public dragStart = new EventEmitter();
-  @Output() public dropped = new EventEmitter();
-  @Output() public moveDown = new EventEmitter();
-  @Output() public moveUp = new EventEmitter();
-  @Output() public remove = new EventEmitter();
+  @Output() public dragStart: EventEmitter<SortableEvent> = new EventEmitter();
+  @Output() public dropped: EventEmitter<SortableEvent> = new EventEmitter();
+  @Output() public moveDown: EventEmitter<SortableEvent> = new EventEmitter();
+  @Output() public moveUp: EventEmitter<SortableEvent> = new EventEmitter();
+  @Output() public remove: EventEmitter<SortableEvent> = new EventEmitter();
   @Input() public listStyle: any = {
     height: "250px",
     width: "300px",
@@ -33,11 +33,30 @@ export class NgxSortableComponent {
   @ContentChild(TemplateRef) public itemTemplate: TemplateRef<
     NgForOfContext<any>
   >;
+  @Input() arrowKeySort: boolean;
+  @Input() commandKey: CommandKey = CommandKey.CtrlKey;
   public selectedItem: any;
   public draggedIndex = -1;
   public onDragOverIndex = -1;
   constructor() {
     // console.log('Intializing...');
+  }
+
+  @HostListener("document:keydown", ["$event"]) public onArrowKeyDown(
+    $event: KeyboardEvent
+  ) {
+    /** istanbul ignore else */
+    if (this.arrowKeySort) {
+      /** istanbul ignore else */
+      if ($event.key === "ArrowUp" && $event[this.commandKey]) {
+        this.onMoveUp($event);
+      }
+      /** istanbul ignore else */
+      if ($event.key === "ArrowDown" && $event[this.commandKey]) {
+        this.onMoveDown($event);
+      }
+      $event.preventDefault();
+    }
   }
 
   @HostListener("document:dragend") public onDragEnd() {
@@ -53,13 +72,15 @@ export class NgxSortableComponent {
     this.selectedItem = item;
   }
 
-  public onMoveUp() {
+  public onMoveUp($event?: any) {
     const index = this.items.indexOf(this.selectedItem);
+    /** istanbul ignore else */
     if (index === 0) {
       return;
     }
     this.swapElements(index, index - 1);
     this.moveUp.emit({
+      event: $event,
       itemIndex: index,
       newIndex: index - 1,
       item: this.selectedItem,
@@ -67,13 +88,14 @@ export class NgxSortableComponent {
     this.listSorted.emit(this.items);
   }
 
-  public onMoveDown() {
+  public onMoveDown($event?: any) {
     const index = this.items.indexOf(this.selectedItem);
     if (index === this.items.length - 1) {
       return;
     }
     this.swapElements(index, index + 1);
     this.moveDown.emit({
+      event: $event,
       itemIndex: index,
       newIndex: index + 1,
       item: this.selectedItem,

@@ -2,7 +2,6 @@
 
 [![GitHub license](https://img.shields.io/github/license/manishjanky/ngx-sortable.svg)](https://github.com/me-and/mdf/blob/master/LICENSE)
 [![npm](https://img.shields.io/npm/v/ngx-sortable.svg)]()
-[![Build Status](https://travis-ci.org/manishjanky/ngx-sortable.svg?branch=master)](https://travis-ci.org/manishjanky/ngx-sortable)
 [![Codecov branch](https://codecov.io/gh/manishjanky/ngx-sortable/branch/master/graphs/badge.svg)]()
 [![npm](https://img.shields.io/npm/dt/ngx-sortable.svg)]()
 [![GitHub top language](https://img.shields.io/github/languages/top/manishjanky/ngx-sortable.svg)]()
@@ -17,6 +16,7 @@
 * Custom template
 * Customizable
 * Drag and drop sorting
+* Use keyboard to sort
 * Remove elements
 
 ## Examples
@@ -82,6 +82,17 @@ Where content inside ``<ng-template> </ng-template>`` is the template that will 
 * `listStyle: any` - list styles such as `height, width`.
 * `showHeader: boolean` -  flag to hide / show header default is true
 * `removeOnDropOutside: boolean` -  flag to enable remove items by dragging and dropping them outside the list. Default is false
+* `arrowKeySort: boolean` - flag to enable sort using keyboard arrow keys. Example: Ctrl + ArrowDown moves item down
+* `commandKey: CommandKey` - key type to use along with arrow keys for sorting e.g. ctrlKey/altKey. Default is ctrlKey
+
+````
+enum CommandKey {
+  CtrlKey = "ctrlKey",
+  ShiftKey = "shiftKey",
+  Altkey = "altKey",
+  MetaKey = "metaKey",
+}
+````
 ````
 listStyle = {
         width:'300px', //width of the list defaults to 300
