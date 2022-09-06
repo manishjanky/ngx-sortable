@@ -2,7 +2,6 @@
 
 [![GitHub license](https://img.shields.io/github/license/manishjanky/ngx-sortable.svg)](https://github.com/me-and/mdf/blob/master/LICENSE)
 [![npm](https://img.shields.io/npm/v/ngx-sortable.svg)]()
-[![Build Status](https://travis-ci.org/manishjanky/ngx-sortable.svg?branch=master)](https://travis-ci.org/manishjanky/ngx-sortable)
 [![Codecov branch](https://codecov.io/gh/manishjanky/ngx-sortable/branch/master/graphs/badge.svg)]()
 [![npm](https://img.shields.io/npm/dt/ngx-sortable.svg)]()
 [![GitHub top language](https://img.shields.io/github/languages/top/manishjanky/ngx-sortable.svg)]()
